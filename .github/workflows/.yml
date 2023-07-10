@@ -1,0 +1,33 @@
+name: sample
+on:
+  push:
+    branches: main
+    
+jobs:
+  build-on-ubuntu:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: S1 pre-build 
+        run: ls -a 
+      - name: S2 checkout 
+        uses: actions/checkout@v3
+      - name: S3 setup jdk 
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: print java version 
+        run: java -version 
+      - name: Compiling 
+        run: javac Test.java
+      - name: Listing 
+        run: pwd
+      - name: Execute 
+        run: java Test
+      - name: S4 Build 
+        run: echo mvn -B package --file pom.xml
+      - name: S5 list env  
+        run: env 
+      - name: S6 Perform task 
+        run: sh script.sh
+        shell: bash
+        
