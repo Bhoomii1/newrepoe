@@ -26,7 +26,7 @@ jobs:
       - name: S4 Build 
         run: echo mvn -B package --file pom.xml
       - name: S5 list env  
-        run: env 
+        run: env
       - name: S6 Perform task 
         run: sh script.sh
         shell: bash
